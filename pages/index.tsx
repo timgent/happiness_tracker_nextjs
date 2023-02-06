@@ -1,7 +1,29 @@
 import Head from 'next/head'
 import { PrimaryButton } from '@/components/buttons'
+import React from 'react';
+import Modal from 'react-modal';
+
+const modalStyle = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 export default function Home() {
+  const [modalIsOpen, setModalIsOpen] = React.useState(false);
+    function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
   return (
     <>
       <Head>
@@ -12,8 +34,22 @@ export default function Home() {
       </Head>
       <main className="min-h-screen bg-slate-400">
         <h1>Happiness Tracker with NextJS</h1>
-        <PrimaryButton>Woop woop</PrimaryButton>
+        <PrimaryButton onClick={openModal}>Woop woop</PrimaryButton>
+        <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={modalStyle}
+        contentLabel="I'm a modal!!"
+        >
+          <h1>I'm a modal!!</h1>
+        </Modal>
       </main>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
 }
