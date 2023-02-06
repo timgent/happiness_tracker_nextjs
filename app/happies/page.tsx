@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head'
 import { PrimaryButton } from '@/components/buttons'
 import React from 'react';
@@ -41,15 +43,9 @@ export default function Home() {
         style={modalStyle}
         contentLabel="I'm a modal!!"
         >
-          <h1>I'm a modal!!</h1>
+          <h1 className="text-xl text-black">I'm a modal!!</h1>
         </Modal>
       </main>
     </>
   )
-}
-
-export async function getServerSideProps(context) {
-  return {
-    props: {}, // will be passed to the page component as props
-  }
 }
