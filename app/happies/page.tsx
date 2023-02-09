@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { PrimaryButton } from '@/components/buttons'
 import React from 'react';
 import Modal from 'react-modal';
+import HappyForm from './HappyForm';
 
 const modalStyle = {
   content: {
@@ -26,6 +27,7 @@ export default function Home() {
     setModalIsOpen(false);
   }
 
+
   return (
     <>
       <Head>
@@ -43,7 +45,7 @@ export default function Home() {
         style={modalStyle}
         contentLabel="I'm a modal!!"
         >
-          <h1 className="text-xl text-black">I'm a modal!!</h1>
+          <HappyForm/>
         </Modal>
       </main>
     </>

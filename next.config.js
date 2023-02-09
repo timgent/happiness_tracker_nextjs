@@ -6,4 +6,6 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+const withTelefunc = require('telefunc/next').default
+
+module.exports = withTelefunc(nextConfig)
